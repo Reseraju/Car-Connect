@@ -47,7 +47,7 @@ public class Vehicle {
 	public String getMake() {
 		return make;
 	}
-	public void setFirstName(String make) {
+	public void setMake(String make) {
 		this.make = make;
 	}
 	
@@ -89,6 +89,13 @@ public class Vehicle {
 	}
 	public void setDailyRate(double dailyRate) {
 		this.dailyRate = dailyRate;
+	}
+	
+	@Override
+	public String toString() {
+	    return "Vehicle [vehicleID=" + vehicleID + ", model=" + model + ", make=" + make 
+	        + ", year=" + year + ", color=" + color + ", registrationNumber=" + registrationNumber 
+	        + ", availability=" + availability + ", dailyRate=" + dailyRate + "]";
 	}
 }
 
