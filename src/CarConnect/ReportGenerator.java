@@ -20,12 +20,15 @@ public class ReportGenerator {
 	
 	public void generateVehicleReport(List<Vehicle> vehicles) {
 		for (Vehicle vehicle : vehicles) {
+			
             System.out.println("VehicleID: " + vehicle.getVehicleId() +
                                "\nModel: " + vehicle.getModel() +
                                "\nColor: " + vehicle.getColor() +
                                "\nDaily Rate: " + vehicle.getDailyRate() +
                                "\nAvailability: " + vehicle.getAvailability()
             		);
+            
+            System.out.println("\n------------------------------------\n");
         }
 	}
 }

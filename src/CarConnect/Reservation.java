@@ -65,7 +65,7 @@ public class Reservation {
     public double getTotalCost() {
     	return totalCost;
     }
-    public void setStartDate(double totalCost) {
+    public void setTotalCost(double totalCost) {
     	this.totalCost = totalCost;
     }
     

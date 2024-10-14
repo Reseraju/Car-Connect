@@ -21,7 +21,7 @@ public class ReservationService implements IReservationService {
 		
 		try{
 			connection = dbContext.getConnection();
-			String sql = "SELECT * FROM reservations WHERE ReservationID = ?";
+			String sql = "SELECT * FROM reservation WHERE ReservationID = ?";
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setInt(1, reservationID);
 			ResultSet resultSet = ps.executeQuery();
@@ -102,7 +102,7 @@ public class ReservationService implements IReservationService {
 
         try {
             connection = dbContext.getConnection();
-            String sql = "INSERT INTO reservations (CustomerID, VehicleID, StartDate, EndDate, TotalCost, Status) "
+            String sql = "INSERT INTO reservation (CustomerID, VehicleID, StartDate, EndDate, TotalCost, Status) "
                        + "VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, reservationData.getCustomerID());
@@ -137,7 +137,7 @@ public class ReservationService implements IReservationService {
 
         try {
             connection = dbContext.getConnection();
-            String sql = "UPDATE reservations SET CustomerID = ?, VehicleID = ?, StartDate = ?, EndDate = ?, TotalCost = ?, Status = ? "
+            String sql = "UPDATE reservation SET CustomerID = ?, VehicleID = ?, StartDate = ?, EndDate = ?, TotalCost = ?, Status = ? "
                        + "WHERE ReservationID = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, reservationData.getCustomerID());
@@ -172,7 +172,7 @@ public class ReservationService implements IReservationService {
 
         try {
             connection = dbContext.getConnection();
-            String sql = "DELETE FROM reservations WHERE ReservationID = ?";
+            String sql = "DELETE FROM reservation WHERE ReservationID = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, reservationID);
 
