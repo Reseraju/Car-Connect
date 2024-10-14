@@ -1,4 +1,4 @@
-package CarConnect;
+package Entity;
 
 
 public class Vehicle {

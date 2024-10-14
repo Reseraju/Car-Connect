@@ -1,4 +1,4 @@
-package CarConnect;
+package Exception;
 
 public class AdminNotFoundException extends Exception {
 	

@@ -1,4 +1,4 @@
-package CarConnect;
+package Exception;
 
 public class VehicleNotFoundException extends Exception {
     public VehicleNotFoundException(String message) {

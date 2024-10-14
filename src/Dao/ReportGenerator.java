@@ -1,6 +1,9 @@
-package CarConnect;
+package Dao;
 
 import java.util.List;
+
+import Entity.Reservation;
+import Entity.Vehicle;
 
 public class ReportGenerator {
 	

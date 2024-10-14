@@ -1,4 +1,4 @@
-package CarConnect;
+package Main;
 
 import java.sql.Date;
 //import java.sql.Connection;
@@ -6,6 +6,12 @@ import java.sql.SQLException;
 //import java.sql.Statement;
 import java.util.List;
 import java.util.Scanner;
+
+import Dao.ReportGenerator;
+import Dao.ReservationService;
+import Dao.VehicleService;
+import Entity.Reservation;
+import Entity.Vehicle;
 
 public class SqlConnection {
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {

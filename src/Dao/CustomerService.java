@@ -1,10 +1,14 @@
-package CarConnect;
+package Dao;
 
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import Entity.Customer;
+import Exception.DatabaseConnectionException;
+import Util.DatabaseContext;
 
 public class CustomerService implements ICustomerService {
 	private DatabaseContext dbContext = new DatabaseContext();

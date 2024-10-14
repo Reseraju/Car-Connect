@@ -1,6 +1,8 @@
-package CarConnect;
+package Dao;
 
 import java.util.List;
+
+import Entity.Reservation;
 
 public interface IReservationService {
 	Reservation getReservationByID(int reservationID);

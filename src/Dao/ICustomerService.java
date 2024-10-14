@@ -1,4 +1,6 @@
-package CarConnect;
+package Dao;
+
+import Entity.Customer;
 
 public interface ICustomerService {
 	Customer getCustomerByID(int customerID);

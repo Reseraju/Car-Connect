@@ -1,4 +1,6 @@
-package CarConnect;
+package Dao;
+
+import Entity.Admin;
 
 public interface IAdminService {
 	Admin getAdminByID(int adminID);

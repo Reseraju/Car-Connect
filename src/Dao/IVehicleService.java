@@ -1,6 +1,8 @@
-package CarConnect;
+package Dao;
 
 import java.util.List;
+
+import Entity.Vehicle;
 
 public interface IVehicleService {
 	Vehicle getVehicleByID(int vehicleID);
