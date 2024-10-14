@@ -1,5 +1,6 @@
 package Dao;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -14,7 +15,7 @@ public class CustomerService implements ICustomerService {
 	private DatabaseContext dbContext = new DatabaseContext();
 
 	@Override
-	public Customer getCustomerByID(int customerID) {
+	public Customer getCustomerByID(int customerID) throws IOException {
 		Customer customer = null;
 		String sql = "SELECT CustomerID, FirstName, LastName, Email, PhoneNumber, Address, Username, RegistrationDate FROM customer WHERE CustomerID = ?";
 		
@@ -46,7 +47,7 @@ public class CustomerService implements ICustomerService {
 	}
 
 	@Override
-	public Customer getCustomerByUserName(String username) {
+	public Customer getCustomerByUserName(String username) throws IOException {
 		Customer customer = null;
 		String sql = "SELECT CustomerID, FirstName, LastName, Email, PhoneNumber, Address, Username, RegistrationDate FROM customer WHERE Username = ?";
 		
@@ -78,7 +79,7 @@ public class CustomerService implements ICustomerService {
 	}
 
 	@Override
-	public boolean registerCustomer(Customer customerData) {
+	public boolean registerCustomer(Customer customerData) throws IOException {
 		String sql = "INSERT INTO customer (CustomerID, FirstName, LastName, Email, PhoneNumber, Address, Username, Password, RegistrationDate) "
 				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
@@ -107,7 +108,7 @@ public class CustomerService implements ICustomerService {
 	}
 
 	@Override
-	public boolean updateCustomer(Customer customerData) {
+	public boolean updateCustomer(Customer customerData) throws IOException {
 		String sql = "UPDATE customer SET FirstName = ?, LastName = ?, Email = ?, PhoneNumber = ?, Address = ?, Username = ?, Password = ?, RegistrationDate = ? WHERE CustomerID = ?";
 		
 		try(Connection connection = dbContext.getConnection();
@@ -133,7 +134,7 @@ public class CustomerService implements ICustomerService {
 	}
 
 	@Override
-	public boolean deleteCustomer(int customerID) {
+	public boolean deleteCustomer(int customerID) throws IOException {
 		String sql = "DELETE FROM customer WHERE CustomerID = ?";
 		
 		try(Connection connection = dbContext.getConnection();

@@ -1,5 +1,6 @@
 package Dao;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,7 +19,7 @@ public class VehicleService implements IVehicleService {
 	private DatabaseContext dbContext = new DatabaseContext();
 
 	@Override
-	public Vehicle getVehicleByID(int vehicleID) {
+	public Vehicle getVehicleByID(int vehicleID) throws IOException {
 		Vehicle vehicle = null;
         String sql = "SELECT * FROM vehicle WHERE VehicleID = ?";
 
@@ -49,7 +50,7 @@ public class VehicleService implements IVehicleService {
 	}
 
 	@Override
-	public List<Vehicle> getAvailableVehicles() {
+	public List<Vehicle> getAvailableVehicles() throws IOException{
 		List<Vehicle> vehicles = new ArrayList<>();
 		String sql = "SELECT * FROM vehicle WHERE Availability = true";
 		
@@ -80,7 +81,7 @@ public class VehicleService implements IVehicleService {
 	}
 
 	@Override
-	public boolean addVehicle(Vehicle vehicleData) {
+	public boolean addVehicle(Vehicle vehicleData) throws IOException{
 		String sql = "INSERT INTO vehicle (vehicleID, Model, Make, Year, Color, RegistrationNumber, Availability, DailyRate) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -124,7 +125,7 @@ public class VehicleService implements IVehicleService {
 	}
 
 	@Override
-	public boolean updateVehicle(Vehicle vehicleData) {
+	public boolean updateVehicle(Vehicle vehicleData) throws IOException{
 		String sql = "UPDATE vehicle SET Model = ?, Make = ?, Year = ?, Color = ?, RegistrationNumber = ?, "
                 + "Availability = ?, DailyRate = ? WHERE VehicleID = ?";
 
@@ -174,7 +175,7 @@ public class VehicleService implements IVehicleService {
 	}
 
 	@Override
-	public boolean removeVehicle(int vehicleID) {
+	public boolean removeVehicle(int vehicleID) throws IOException{
 		String sql = "DELETE FROM vehicle WHERE VehicleID = ?";
 
         try (Connection connection = dbContext.getConnection();

@@ -1,5 +1,6 @@
 package Dao;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -17,7 +18,7 @@ public class ReservationService implements IReservationService {
 	private DatabaseContext dbContext = new DatabaseContext();
 	
 	@Override
-	public Reservation getReservationByID(int reservationID) {
+	public Reservation getReservationByID(int reservationID) throws IOException {
 		
 		
 		Reservation reservation = null;
@@ -58,7 +59,7 @@ public class ReservationService implements IReservationService {
 	}
 
 	@Override
-	public List<Reservation> getReservationByCustomerID(int customerID) {
+	public List<Reservation> getReservationByCustomerID(int customerID) throws IOException {
 		List<Reservation> reservations = new ArrayList<>();
 		Connection connection = null;
 		
@@ -100,7 +101,7 @@ public class ReservationService implements IReservationService {
 	}
 
 	@Override
-	public boolean createReservation(Reservation reservationData) {
+	public boolean createReservation(Reservation reservationData) throws IOException{
 		Connection connection = null;
         boolean isCreated = false;
 
@@ -135,7 +136,7 @@ public class ReservationService implements IReservationService {
 	}
 
 	@Override
-	public boolean updateReservation(Reservation reservationData) {
+	public boolean updateReservation(Reservation reservationData) throws IOException{
 		Connection connection = null;
         boolean isUpdated = false;
 
@@ -170,7 +171,7 @@ public class ReservationService implements IReservationService {
 	}
 
 	@Override
-	public boolean cancelReservation(int reservationID) {
+	public boolean cancelReservation(int reservationID) throws IOException{
 		Connection connection = null;
         boolean isCanceled = false;
 

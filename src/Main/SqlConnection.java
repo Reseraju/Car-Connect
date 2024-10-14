@@ -1,5 +1,6 @@
 package Main;
 
+import java.io.IOException;
 import java.sql.Date;
 //import java.sql.Connection;
 import java.sql.SQLException;
@@ -14,7 +15,7 @@ import Entity.Reservation;
 import Entity.Vehicle;
 
 public class SqlConnection {
-	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+	public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException {
 		Scanner sc = new Scanner(System.in);
 		
 		// Load the driver class

@@ -1,5 +1,6 @@
 package Dao;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -15,7 +16,7 @@ public class AdminService implements IAdminService {
 	private DatabaseContext dbContext = new DatabaseContext();
 	
 	@Override
-	public Admin getAdminByID(int adminID) {
+	public Admin getAdminByID(int adminID) throws IOException {
 		Admin admin = null;
         String sql = "SELECT * FROM admin WHERE AdminID = ?";
 
@@ -47,7 +48,7 @@ public class AdminService implements IAdminService {
 	}
 
 	@Override
-	public Admin getAdminByUsername(String username) {
+	public Admin getAdminByUsername(String username) throws IOException {
 		Admin admin = null;
         String sql = "SELECT * FROM admin WHERE Username = ?";
 
@@ -79,7 +80,7 @@ public class AdminService implements IAdminService {
 	}
 
 	@Override
-	public boolean registerAdmin(Admin adminData) {
+	public boolean registerAdmin(Admin adminData) throws IOException {
 		String sql = "INSERT INTO admin (AdminID, FirstName, LastName, Email, PhoneNumber, Username, Password, Role, JoinDate) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -104,7 +105,7 @@ public class AdminService implements IAdminService {
 	}
 
 	@Override
-	public boolean updateAdmin(Admin adminData) {
+	public boolean updateAdmin(Admin adminData) throws IOException {
 		String sql = "UPDATE admin SET FirstName = ?, LastName = ?, Email = ?, PhoneNumber = ?, Username = ?, "
                 + "Password = ?, Role = ?, JoinDate = ? WHERE AdminID = ?";
 
@@ -129,7 +130,7 @@ public class AdminService implements IAdminService {
 	}
 
 	@Override
-	public boolean deleteAdmin(int adminID) {
+	public boolean deleteAdmin(int adminID) throws IOException {
 		String sql = "DELETE FROM admin WHERE AdminID = ?";
 
         try (Connection connection = dbContext.getConnection();

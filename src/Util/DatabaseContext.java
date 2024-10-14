@@ -1,18 +1,25 @@
 package Util;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 
 import Exception.DatabaseConnectionException;
 
 public class DatabaseContext {
 	
-	public Connection getConnection() throws DatabaseConnectionException {
+	public Connection getConnection() throws DatabaseConnectionException, IOException {
 		try {
-			String url = "jdbc:mysql://localhost:3306/carconnect";
-			String username = "root";
-			String password = "Apple@99l3123";
+			Properties properties = new Properties();
+			FileInputStream fis = new FileInputStream("D:\\Eclipse\\CaseStudy\\src\\Util\\db.properties");
+			properties.load(fis);
+			
+			String url = properties.getProperty("jdbc.url");
+			String username = properties.getProperty("jdbc.username");
+			String password = properties.getProperty("jdbc.password");
 			return DriverManager.getConnection(url, username, password);
 		}
 		catch (SQLException e){
